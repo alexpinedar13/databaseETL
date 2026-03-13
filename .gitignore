@@ -1,0 +1,40 @@
+# Entorno virtual
+.venv/
+venv/
+env/
+ENV/
+
+# Python - archivos temporales
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Streamlit
+.streamlit/
+
+# Base de datos y datos procesados (opcional, pero recomendado)
+# data/processed/
+# data/ventas.db
+
+# IDEs
+.vscode/
+.idea/
