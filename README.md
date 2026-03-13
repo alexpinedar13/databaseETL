@@ -17,7 +17,7 @@ Asegúrate de tener instalado Python 3.8 o superior. Las dependencias necesarias
 
 Puedes instalarlas con el siguiente comando:
 ```bash
-pip install pandas streamlit requests
+pip install pandas streamlit requirements
 ```
 
 ## 📂 Estructura del Proyecto
