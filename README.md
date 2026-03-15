@@ -104,11 +104,8 @@ ELT se usa más en entornos:
 porque tienen gran capacidad de procesamiento.
 3.	Tipos de fuentes de datos
 Tipo	Ejemplo
----
 Estructurado	Base de datos SQL (tabla de clientes)
----
 Semi-estructurado	Archivo JSON o XML
----
 No estructurado	Imágenes, audio o documentos PDF
 
 4.	¿Por qué usar index=False en to_csv()?
