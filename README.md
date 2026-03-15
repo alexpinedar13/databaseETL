@@ -87,3 +87,73 @@ Esto permite que el código sea **robusto**: si una columna opcional falta en el
 
 ---
 *Este proyecto fue desarrollado como parte del Taller de Bases de Datos Avanzada.*
+
+Evaluacion
+1.	¿Qué significan las siglas ETL?
+ETL significa Extract, Transform, Load.
+•	Extract: se extraen datos desde diferentes fuentes (bases de datos, APIs, archivos).
+•	Transform: se limpian, validan y transforman los datos (cambios de formato, filtros, joins).
+•	Load: se cargan los datos procesados en el sistema destino (data warehouse, base de datos, archivos).
+2.	Diferencia entre ETL y ELT
+•	ETL: los datos se transforman antes de cargarse en el sistema destino.
+•	ELT: los datos se cargan primero y luego se transforman dentro del sistema destino.
+ELT se usa más en entornos:
+•	Cloud
+•	Big Data
+•	Data Warehouses modernos (ej. Snowflake, BigQuery)
+porque tienen gran capacidad de procesamiento.
+3.	Tipos de fuentes de datos
+Tipo	Ejemplo
+Estructurado	Base de datos SQL (tabla de clientes)
+Semi-estructurado	Archivo JSON o XML
+No estructurado	Imágenes, audio o documentos PDF
+
+4.	¿Por qué usar index=False en to_csv()?
+Porque evita que Pandas guarde el índice del DataFrame como una columna adicional en el archivo CSV.
+Si no se usa, el CSV tendrá una columna extra innecesaria con los números de fila.
+5.	Diferencia entre inner join y left join
+Inner Join
+•	Solo mantiene las filas que tienen coincidencia en ambas tablas.
+•	Se usa cuando quiero solo registros que existen en ambas fuentes.
+Left Join
+•	Mantiene todas las filas de la tabla izquierda.
+•	Si no hay coincidencia, se rellenan valores con NaN.
+•	Se usa cuando quiero conservar todos los registros principales y agregar información si existe.
+
+6.	¿Para qué sirve calcular un hash (MD5) en ETL?
+Sirve para identificar cambios en los datos.
+Usos comunes:
+•	Detectar duplicados en datasets.
+•	Verificar integridad de los datos.
+•	Detectar registros modificados entre cargas.
+•	Validar que un dataset no cambió después del procesamiento.
+
+7.	¿Qué es data staging y por qué separar raw y processed?
+Data staging es un área temporal donde los datos se almacenan antes de ser transformados.
+Separar carpetas:
+•	raw: contiene datos originales sin modificar.
+•	processed: contiene datos ya transformados y listos para análisis.
+Esto permite:
+•	mantener trazabilidad
+•	reproducir el proceso ETL
+•	evitar perder datos originales.
+8.	¿Qué hace response.raise_for_status()?
+Lanza una excepción si la respuesta HTTP de la API indica un error (códigos 4xx o 5xx).
+Es importante porque:
+•	Detecta errores de conexión o del servidor
+•	Evita procesar datos inválidos
+•	Permite manejar errores en el pipeline ETL.
+9.	¿Qué hace df[df["a"] > 0]?
+Es una operación de filtrado usando indexación booleana.
+Resultado:
+•	devuelve un DataFrame
+•	contiene solo las filas donde la columna "a" es mayor que 0
+•	mantiene las mismas columnas ["a","b","c"].
+
+10.	Valor de how en merge
+df1.merge(df2, on="id", how="left")
+El valor es:
+left
+Este tipo de join se llama:
+LEFT JOIN
+y mantiene todas las filas de df1, agregando datos de df2 cuando existe coincidencia y colocando NaN cuando no la hay.
